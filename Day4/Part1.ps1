@@ -1,5 +1,6 @@
 #$assignmentPairs = Get-Content ./Day4/sample.txt
 $assignmentPairs = Get-Content ./Day4/input.txt
+
 $fullyContains=0
 foreach($assignmentPair in $assignmentPairs){
     $elveOneMin,$elveOneMax,$elveTwoMin,$elveTwoMax = $assignmentPair -split(",") -split("-")
