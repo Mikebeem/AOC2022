@@ -44,17 +44,17 @@ for($round=1; $round -le 10000; $round++){
         $monkeyTurn = $monkeys[$monkey]
         $items = $monkeyTurn.Items
         for($i=0; $i -lt $items.Count; $i++){
-            [double]$inspection = $items[$i]
+            [int]$inspection = $items[$i]
             [int]$monkeys[$monkey].Inspections++ | Out-Null
             $first, $monkeys[$monkey].Items = $monkeys[$monkey].Items
             if($monkeyTurn.Operation[1] -like "*old*"){
-                [double]$value = $inspection
+                [int]$value = $inspection
             } else{
-                [double]$value = $monkeyTurn.Operation[1]
+                [int]$value = $monkeyTurn.Operation[1]
             }
             switch($monkeyTurn.Operation[0]){
-                "*" {[double]$worryLevel = ([double]$inspection * $value) % $LCM}
-                "+" {[double]$worryLevel = ([double]$inspection + $value) % $LCM}
+                "*" {[int]$worryLevel = ([int]$inspection * $value) % $LCM}
+                "+" {[int]$worryLevel = ([int]$inspection + $value) % $LCM}
             }
             if($worryLevel % [int]$monkeyTurn.Test -eq 0){
                 [int]$toMonkey = $monkeyTurn.TestTrue
