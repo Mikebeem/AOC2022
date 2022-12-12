@@ -51,18 +51,18 @@ function checkToQueue ([int]$x, [int]$y, [char]$altitude){
     }
 }
 
-$grid = New-object -TypeName 'object[,]' -ArgumentList $height,$width
-for($i=0;$i -lt $height; $i++){
-    for($j=0;$j -lt $width; $j++){
-        $grid[$i,$j] = "."
-    }
-}
+# $grid = New-object -TypeName 'object[,]' -ArgumentList $height,$width
+# for($i=0;$i -lt $height; $i++){
+#     for($j=0;$j -lt $width; $j++){
+#         $grid[$i,$j] = "."
+#     }
+# }
 
 while ($q.Count -gt 0) {
     $item = $q.Dequeue()
 
     [int]$x, [int]$y, [int]$dist = $item -split ","
-    $grid[$y,$x] = [string]($puzzleInput[$y][$x]).ToString()
+    # $grid[$y,$x] = [string]($puzzleInput[$y][$x]).ToString()
     if([char]$puzzleInput[$y][$x] -ceq "S"){
         $altitude = [char]"a"
     } elseif([char]$puzzleInput[$y][$x] -ceq "E"){
