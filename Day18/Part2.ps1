@@ -55,3 +55,6 @@ while($q.Count -gt 0){
 }
 
 $total
+
+$Stopwatch.Stop()
+write-host ("That took {0} Milliseconds, {1} seconds" -f $Stopwatch.Elapsed.TotalMilliseconds, $stopwatch.Elapsed.TotalSeconds)
